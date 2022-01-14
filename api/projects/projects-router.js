@@ -1,5 +1,6 @@
 const express = require('express');
 const Project = require('./projects-model');
+const { validateProject, validateProjectID } = require('./projects-middleware')
 
 const router = express.Router();
 
@@ -13,11 +14,11 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', validateProjectID, (req, res) => {
     res.status(200).json(req.project)
 })
 
-router.post('/', (req, res) => {
+router.post('/', validateProject,  (req, res) => {
     Project.insert(req.body)
     .then(response => {
             res.status(201).json(response);
@@ -27,7 +28,7 @@ router.post('/', (req, res) => {
         })
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', validateProject, validateProjectID, (req, res) => {
     Project.update(req.params.id, req.body)
         .then(response => {
             res.status(200).json(response)
@@ -37,7 +38,7 @@ router.put('/:id', (req, res) => {
         })
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', validateProjectID, (req, res) => {
     Project.remove(req.params.id)
         .then(response => {
             res.status(204).json();
@@ -47,7 +48,7 @@ router.delete('/:id', (req, res) => {
         })
 })
 
-router.get('/:id/actions', (req, res) => {
+router.get('/:id/actions', validateProjectID, (req, res) => {
     Project.getProjectActions(req.params.id)
         .then(response => {
             res.status(200).json(response)
