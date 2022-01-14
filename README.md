@@ -92,22 +92,22 @@ The description of the structure and extra information about each _resource_ sto
 
 #### Projects
 
-| Field       | Data Type | Metadata                                                                    |
-| ----------- | --------- | --------------------------------------------------------------------------- |
-| id          | number    | do not provide it when creating projects, the database will generate it     |
-| name        | string    | required                                                                    |
-| description | string    | required                                                                    |
-| completed   | boolean   | not required, defaults to false when creating projects                      |
+| Field       | Data Type | Metadata                                                                |
+| ----------- | --------- | ----------------------------------------------------------------------- |
+| id          | number    | do not provide it when creating projects, the database will generate it |
+| name        | string    | required                                                                |
+| description | string    | required                                                                |
+| completed   | boolean   | not required, defaults to false when creating projects                  |
 
 #### Actions
 
-| Field       | Data Type | Metadata                                                                                         |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------ |
-| id          | number    | do not provide it when creating actions, the database will generate it                           |
-| project_id  | number    | required, must be the id of an existing project                                                  |
-| description | string    | required, up to 128 characters long                                                              |
-| notes       | string    | required, no size limit. Used to record additional notes or requirements to complete the action  |
-| completed   | boolean   | not required, defaults to false when creating actions                                            |
+| Field       | Data Type | Metadata                                                                                        |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------- |
+| id          | number    | do not provide it when creating actions, the database will generate it                          |
+| project_id  | number    | required, must be the id of an existing project                                                 |
+| description | string    | required, up to 128 characters long                                                             |
+| notes       | string    | required, no size limit. Used to record additional notes or requirements to complete the action |
+| completed   | boolean   | not required, defaults to false when creating actions                                           |
 
 ### Database Persistence Helpers
 
@@ -147,7 +147,25 @@ We have provided test data for all the resources.
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
+
+- Node allows developers to create all kinds of serverside tools and applications, omits browser-specific js api's, and adds support for more traditional OS api's including HTTP, and file system libraries. Node is also portable, its available in many systems, and supported by many web hosting providers.
+- Express is the most popular Node web framework. It writes handlers for requests with different HTTP verbs at different URL paths "routes"
+
 1. Understand and explain the use of Middleware.
+
+- Middleware is a term for any software or service that enables the parts of a system to communicate and manage data. It is the software that handles communication between components and input/output, so developers can focus on the specific purpose of their application.
+
 1. The basic principles of the REST architectural style.
+
+- Is a style of architecture based on a set of principles that describe how networked resources are defined and addressed.
+  State and functionality are divided into distributed resources.
+  Every resource is uniquely addressable using a uniform and minimal set of commands (typically using HTTP commands of GET, POST, PUT, or DELETE over the Internet).
+  The protocol is client/server, stateless, layered, and supports caching.
+
 1. Understand and explain the use of Express Routers.
+
+- Often referred to as a mini-map. Router creates a modular, mountable route handlers. A Router instance is a complete middleware and routing system.
+
 1. Describe tooling used to manually test the correctness of an API.
+
+- The tooling I currently use is Postman. Postman is a simple GUI for sending HTTP requests and viewing responses. Postman supports common http methods like: GET, POST, PUT, PATCH, HEAD, DELETE, OPTIONS, and VIEW.
